@@ -2,6 +2,7 @@ import os
 from typing import Optional
 from fastapi import FastAPI, Path, Query, HTTPException
 from starlette import status
+from fastapi.middleware.cors import CORSMiddleware
 
 import numpy as np
 import pandas as pd
@@ -13,6 +14,15 @@ from sklearn.metrics.pairwise import cosine_similarity
 # Initialize FastAPI application
 app = FastAPI()
 
+# Erlaube dem Frontend Zugriff auf das Backend (Nur zum Testen)
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 # Define the path to the CSV file containing movie data.
 # The CSV file is located in a folder named 'data' relative to this script's directory.
 csv_path = os.path.join(os.path.dirname(__file__), "data", "tmdb_5000_movies.csv")
@@ -20,8 +30,8 @@ csv_path = os.path.join(os.path.dirname(__file__), "data", "tmdb_5000_movies.csv
 # Read the CSV file into a Pandas DataFrame.
 df = pd.read_csv(csv_path)
 
-# Convert the first 10 rows of the DataFrame into a JSON-like structure (list of dictionaries)
-data = json.loads(df.head(10).to_json(orient='records'))
+# Convert the first 12 rows of the DataFrame into a JSON-like structure (list of dictionaries)
+data = json.loads(df.head(12).to_json(orient='records'))
 
 
 def genres_and_keywords_to_string(row):

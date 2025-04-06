@@ -1,0 +1,75 @@
+section {
+    /*background: var(--color-light);
+    border-radius: calc(var(--font-size-initial) * .5);
+    box-shadow: 0 calc(var(--size-initial) * 3) calc(var(--size-initial) * 6) hsla(0, 0%, 0%, .1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;*/
+    position: relative;
+    /* Für das absolute Pseudo-Element */
+    background: var(--color-light);
+    border-radius: calc(var(--font-size-initial) * 0.5);
+    box-shadow: 0 calc(var(--size-initial) * 3) calc(var(--size-initial) * 6) hsla(0, 0%, 0%, 0.1);
+    overflow: hidden;
+    transition: transform 0.25s ease;
+}
+
+section::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    /* Damit es keine Interaktion blockiert */
+    transition: box-shadow 0.25s ease;
+    /* Anfangszustand: kein innerer Rahmen */
+    box-shadow: inset 0 0 0 0 rgb(255, 2, 97);
+}
+
+section:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+section:hover::after {
+    /* Beim Hover: innerer Rahmen sichtbar */
+    box-shadow: inset 0 0 0 2px rgb(255, 2, 97);
+}
+
+article {
+    padding: calc(var(--font-size-initial) * 3);
+}
+
+figure {
+    height: calc(var(--font-size-initial) * 15);
+}
+
+/* IMAGE */
+img {
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+}
+
+/* TYPOGRAPHY */
+h3 {
+    font-size: calc(var(--font-size-initial) * 2);
+    letter-spacing: calc(var(--size-initial) * -1.25);
+    line-height: calc(var(--font-size-initial) * 2.25);
+    margin: calc(var(--font-size-initial) * .5) 0;
+}
+
+p {
+    font-size: calc(var(--font-size-initial) * .875);
+    line-height: calc(var(--font-size-initial) * 1.25);
+}
+
+span {
+    color: var(--color-gray-80);
+    font-size: calc(var(--font-size-initial) * .75);
+    letter-spacing: calc(var(--size-initial) * .75);
+    text-transform: uppercase;
+    word-spacing: var(--size-initial);
+}
