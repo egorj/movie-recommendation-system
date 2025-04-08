@@ -10,6 +10,8 @@ Ein Machine-Learning-Projekt, das auf Basis von Nutzerpräferenzen Filme empfieh
 - [Features](#features)
 - [Technologien](#technologien)
 - [Architektur](#architektur)
+- [Nutzung](#nutzung)
+- [Weiterentwicklung](#weiterentwicklung)
 
 ---
 
@@ -52,22 +54,39 @@ Das System ist in zwei Hauptkomponenten unterteilt:
 
 Das System folgt einem klar getrennten Architekturansatz:
 
-1. **Datenaufbereitung:**  
-   - Im Ordner `backend/data` befinden sich die Rohdaten (Filminformationen).  
+1. **Datenaufbereitung:**
+
+   - Im Ordner `backend/data` befinden sich die Rohdaten (Filminformationen).
    - Die Daten werden vor-verarbeitet, um relevante Features zu extrahieren.
 
-2. **Feature-Extraktion:**  
+2. **Feature-Extraktion:**
    - Mit TF-IDF werden Textinformationen in numerische Merkmalsvektoren umgewandelt.
-   
-3. **Ähnlichkeitsberechnung:**  
+3. **Ähnlichkeitsberechnung:**
+
    - Die Cosine Similarity wird berechnet, um die inhaltliche Nähe zwischen Filmen zu bestimmen.
 
-4. **API-Integration:**  
+4. **API-Integration:**
    - Das Backend stellt Endpunkte zur Verfügung, über die Anfragen zur Empfehlung gestellt werden können.
-   
-5. **Frontend-Interaktion:**  
+5. **Frontend-Interaktion:**
    - Das React-Frontend kommuniziert mit der API, um dynamisch Empfehlungen anzuzeigen.
 
 Diese modulare Architektur ermöglicht es, einzelne Komponenten unabhängig zu optimieren und bei Bedarf neue Funktionalitäten hinzuzufügen.
 
 ---
+
+## Nutzung
+
+**1. Film auswählen:** Öffnen Sie das Frontend und wählen Sie einen Film oder geben Sie Ihre Vorlieben ein.
+
+**2. Empfehlungen abrufen:** Das Frontend sendet Ihre Eingaben an das Backend. Dort werden basierend auf TF-IDF und Cosine Similarity passende Filme ermittelt.
+
+**3. Ergebnisse anzeigen:** Die empfohlenen Filme werden in der Benutzeroberfläche angezeigt. Bei Bedarf können Sie weitere Filter anwenden oder detaillierte Informationen zu den Filmen einsehen.
+
+---
+
+## Weiterentwicklung
+
+- Erweiterung um zusätzliche Empfehlungskriterien (z. B. Benutzerbewertungen, Genre-Filter).
+- Integration eines hybriden Empfehlungssystems, das kollaborative Filterung mit einbezieht.
+- Verbesserung der Frontend-Benutzeroberfläche mit erweiterten Filtermöglichkeiten und Animationen.
+- Hinzufügen von Unit-Tests und CI/CD-Pipelines zur Qualitätssicherung.
