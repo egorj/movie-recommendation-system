@@ -26,7 +26,7 @@ def load_movie_data(csv_path: str) -> pd.DataFrame:
     try:
         df = pd.read_csv(csv_path)
         # Überprüfen, ob die erforderlichen Spalten vorhanden sind
-        required_columns = {'id', 'title', 'genres', 'keywords', 'overview'}
+        required_columns = {'id', 'title', 'genres', 'keywords', 'overview', 'release_date'}
         if not required_columns.issubset(set(df.columns)):
             missing = required_columns - set(df.columns)
             raise RuntimeError(f"Die CSV-Datei fehlt folgende Spalten: {', '.join(missing)}")

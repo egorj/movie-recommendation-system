@@ -42,7 +42,7 @@ except Exception as e:
     raise RuntimeError(f"Fehler beim Laden der Filmdaten: {e}")
 
 # Entferne ungültige Werte für eine sichere JSON-Ausgabe und erzeuge einen Auszug
-safe_df_excerpt = df.head(12).replace([float("inf"), float("-inf")], pd.NA).fillna("N/A")
+safe_df_excerpt = df.sample(12).replace([float("inf"), float("-inf")], pd.NA).fillna("N/A")
 data_excerpt = json.loads(safe_df_excerpt.to_json(orient="records"))
 
 # Initialisiere den MovieRecommender
@@ -70,10 +70,10 @@ def enrich_movie_with_poster(movie_dict: dict) -> dict:
 @app.get("/", status_code=status.HTTP_200_OK)
 def read_all_movies():
     """
-    Liefert die ersten 12 Filme als JSON-Liste.
+    Liefert random 12 Filme als JSON-Liste.
 
     Returns:
-        list: Eine Liste von Dictionaries mit den Details der ersten 12 Filme.
+        list: Eine Liste von Dictionaries mit den Details der random 12 Filme.
     """
     # Um Poster in diesem Auszug einzufügen, wird jedes Film-Dict erweitert:
     enriched = [enrich_movie_with_poster(movie) for movie in data_excerpt]

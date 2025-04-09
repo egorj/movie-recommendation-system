@@ -73,3 +73,33 @@ span {
     text-transform: uppercase;
     word-spacing: var(--size-initial);
 }
+
+/* Recommendations Overlay */
+.overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    background-color: var(--color-bg);
+    z-index: 1000;
+    overflow-y: auto;
+    box-shadow: 2px 0px 8px rgba(0, 0, 0, 0.3);
+}
+
+.overlayContent {
+    margin-top: 4rem;
+    padding: 2rem;
+}
+
+.backButton {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background: none;
+    border: none;
+    font-size: 3rem;
+    font-weight: bold;
+    cursor: pointer;
+    color: rgb(255, 2, 97);
+}

@@ -89,5 +89,5 @@ class MovieRecommender:
         # Sortiere die Indizes basierend auf den Ähnlichkeitswerten und schließe den Input-Film aus
         recommended_idx = (-scores).argsort()[1:top_n+1]
         # Extrahiere 'id' und 'title' der empfohlenen Filme
-        rec_movies = self.df.loc[recommended_idx, ['id', 'title']]
+        rec_movies = self.df.loc[recommended_idx, ['id', 'title', 'overview', 'release_date']]
         return rec_movies.to_dict(orient='records')
