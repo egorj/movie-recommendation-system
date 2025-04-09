@@ -46,7 +46,7 @@ function App() {
 
   return (
     <>
-      <h1>Movie Recommendations</h1>
+      <h1>Which movie would you like to get recommendations for ?</h1>
       {loading ? (
         <div className="loading">Loading...</div>
       ) : (
