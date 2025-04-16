@@ -93,3 +93,82 @@ span {
     cursor: pointer;
     color: rgb(255, 2, 97);
 }
+
+/* Media Query für kleine Geräte (Smartphones) */
+@media (max-width: 600px) {
+    .overlay {
+        width: 100%;
+    }
+
+    section {
+        padding: 5px;
+        margin: 0;
+        height: auto;
+    }
+
+    /* Image */
+    figure {
+        height: auto;
+        width: 100%;
+    }
+
+    img {
+        object-fit: contain;
+        width: 100%;
+        height: auto;
+    }
+
+    /* Typography */
+    h3 {
+        font-size: calc(var(--font-size-initial) * 1.5);
+    }
+
+    p {
+        font-size: calc(var(--font-size-initial) * 0.75);
+    }
+
+    span {
+        font-size: calc(var(--font-size-initial) * 0.6);
+    }
+
+    /* Recommendations Overlay */
+    .overlay {
+        width: 100%;
+        /* Vollbild auf kleinen Geräten */
+        box-shadow: none;
+        /* Entfernt den Schatten auf mobilen Geräten */
+    }
+
+    .overlayContent {
+        margin-top: 2rem;
+        padding: 1rem;
+    }
+
+    .backButton {
+        font-size: 3rem;
+    }
+}
+
+/* Media Query für mittlere Geräte (Tablets) */
+@media (max-width: 900px) {
+    section {
+        padding: calc(var(--font-size-initial) * 2);
+    }
+
+    h3 {
+        font-size: calc(var(--font-size-initial) * 1.8);
+    }
+
+    p {
+        font-size: calc(var(--font-size-initial) * 0.85);
+    }
+
+    span {
+        font-size: calc(var(--font-size-initial) * 0.7);
+    }
+
+    .overlay {
+        width: 60%;
+        /* Overlay auf Tablets etwas breiter */
+    }
+}
