@@ -12,7 +12,6 @@ function App() {
     const loadMovies = async () => {
       try {
         const movies = await getMovies();
-        console.log("Movies from API:", movies); // Debug-Ausgabe
         setMovies(movies);
       } catch (err) {
         console.log(err);

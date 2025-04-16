@@ -1,11 +1,5 @@
 section {
-    /*background: var(--color-light);
-    border-radius: calc(var(--font-size-initial) * .5);
-    box-shadow: 0 calc(var(--size-initial) * 3) calc(var(--size-initial) * 6) hsla(0, 0%, 0%, .1);
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;*/
     position: relative;
-    /* Für das absolute Pseudo-Element */
     background: var(--color-light);
     border-radius: calc(var(--font-size-initial) * 0.5);
     box-shadow: 0 calc(var(--size-initial) * 3) calc(var(--size-initial) * 6) hsla(0, 0%, 0%, 0.1);
@@ -22,9 +16,7 @@ section::after {
     left: 0;
     border-radius: inherit;
     pointer-events: none;
-    /* Damit es keine Interaktion blockiert */
     transition: box-shadow 0.25s ease;
-    /* Anfangszustand: kein innerer Rahmen */
     box-shadow: inset 0 0 0 0 rgb(255, 2, 97);
 }
 
@@ -34,7 +26,6 @@ section:hover {
 }
 
 section:hover::after {
-    /* Beim Hover: innerer Rahmen sichtbar */
     box-shadow: inset 0 0 0 2px rgb(255, 2, 97);
 }
 
@@ -98,8 +89,7 @@ span {
     left: 1rem;
     background: none;
     border: none;
-    font-size: 3rem;
-    font-weight: bold;
+    font-size: 4rem;
     cursor: pointer;
     color: rgb(255, 2, 97);
 }
